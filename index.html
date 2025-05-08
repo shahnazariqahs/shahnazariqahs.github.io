@@ -21,6 +21,44 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
+
+        <script>
+            
+            // function dibuat agar tidak langsung di load waktu web dibuka tapi sesuai kebutuhan(kalo dipanggil)
+            // execute js ada di console, klo kosong artinya ga eror
+            function validasi()
+            {
+                var nama= document.getElementById("nama").value;
+                var email= document.getElementById("email").value;
+                
+                if (nama.length ==0){
+                    //alert ("Nama harus diisi");
+                    swal("Pesan", "Nama harus diisi", "error");
+                    document.getElementById("nama").focus();
+                    return false;
+
+                }
+                
+                if (email.length == 0){
+                    //alert ("Email harus diisi");
+                    swal("Pesan", "Email harus diisi", "error");
+                    document.getElementById("email").focus();
+                    return false;
+                }
+
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    swal("Gagal!", "Format email tidak valid!", "error");
+                    return false;
+                }
+
+
+            }
+
+
+        </script>
+
+        
     </head>
 
     <style>
